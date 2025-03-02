@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h2>Shows</h2>
+    <ol>
+        {% for show in shows %}
+
+            <li>{{ show.title }}</li>
+            <form action="/watch_list" method="post">
+                <input type="hidden" value="{{ show.id }}" name="id">
+                <button type="submit">Add to watch list</button>
+            </form>
+            <br>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

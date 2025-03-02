@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h2>Your watch list</h2>
+    <ul>
+        <ol>
+            {% for show in shows %}
+                <li>{{ show.title }}</li>
+            {% endfor %}
+        </ol>
+        <br>
+    </ul>
+
+{% endblock %}

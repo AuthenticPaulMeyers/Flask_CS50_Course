@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2>Add Students</h2>
+    <button><a href="/students">View students</a></button>
+    <hr>
+    <section class="container">
+        <form action="/register" method="post">
+            <h3>Personal Details</h3>
+            <hr>
+            <div class="input-container">
+                <label for="firstname">Firstname</label><br>
+                <input type="text" name="firstname" id="firstname" autofocus autocomplete="off" placeholder="Firstname">
+            </div>
+            <div class="input-container">
+                <label for="middlename">Middlename</label><br>
+                <input type="text" name="middlename" id="middlename" autocomplete="off" placeholder="Middlename">
+            </div>
+            <div class="input-container">
+                <label for="lastname">Lastname</label><br>
+                <input type="text" name="lastname" id="lastname" autocomplete="off" placeholder="Lastname">
+            </div>
+            <div class="input-container">
+                <label for="gender">Gender</label><br>
+                {% for g in gender %}
+                    <input type="radio" name="gender" value="{{ g }}"><span>{{ g }}</span>
+                {% endfor %}
+            </div>
+            <div class="input-container">
+                <label for="date_of_birth">Date of birth</label><br>
+                <input type="date" name="date_of_birth" id="date_of_birth" autocomplete="off" placeholder="Select date">
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email" aautocomplete="off" placeholder="Email">
+            </div>
+            <div class="input-container">
+                <label for="phone">phone</label><br>
+                <input type="text" name="phone" id="phone" aautocomplete="off" placeholder="Phone number">
+            </div><br>
+            <button type="submit">Register</button>
+        </form>
+    </section>
+{% endblock%}

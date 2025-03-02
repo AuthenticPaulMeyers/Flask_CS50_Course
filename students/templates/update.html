@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+    <h2>Update Student</h2>
+    <hr>
+    <section class="container">
+        {% for student in students %}
+        <form action="/update/{{student.id}}" method="post">
+            <h3>Personal Details</h3>
+            <hr>
+            
+            <div class="input-container">
+                <label for="firstname">Firstname</label><br>
+                <input type="text" name="firstname" id="firstname" autofocus autocomplete="off" value="{{ student.firstname }}" placeholder="Firstname">
+            </div>
+            <div class="input-container">
+                <label for="middlename">Middlename</label><br>
+                <input type="text" name="middlename" id="middlename" autocomplete="off" value="{{ student.middlename }}" placeholder="Middlename">
+            </div>
+            <div class="input-container">
+                <label for="lastname">Lastname</label><br>
+                <input type="text" name="lastname" id="lastname" autocomplete="off" value="{{ student.lastname }}" placeholder="Lastname">
+            </div>
+            <div class="input-container">
+                <label for="gender">Gender</label><br>
+                {% for g in gender %}
+                    <input type="radio" name="gender" value="{{ g }}"><span>{{ g }}</span>
+                {% endfor %}
+            </div>
+            <div class="input-container">
+                <label for="date_of_birth">Date of birth</label><br>
+                <input type="date" name="date_of_birth" id="date_of_birth" autocomplete="off" value="{{ student.date_of_birth }}">
+            </div>
+            <div class="input-container">
+                <label for="email">Email</label><br>
+                <input type="email" name="email" id="email" aautocomplete="off" value="{{ student.email }}" placeholder="Email">
+            </div>
+            <div class="input-container">
+                <label for="phone">phone</label><br>
+                <input type="text" name="phone" id="phone" aautocomplete="off" value="{{ student.phone }}" placeholder="Phone number">
+            </div><br>
+            <button type="submit">Update</button><button><a href="/delete/{{ student.id }}">Delete</a></button>
+            {% endfor %}
+            
+        </form>
+    </section>
+{% endblock%}

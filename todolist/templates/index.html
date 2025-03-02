@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <h2>ADD TASK</h2>
+    <hr>
+    <form action="/add" method="post">
+        <label for="title">Task</label>
+        <input type="text" name="title" id="title" placeholder="Add task here..." value="">
+        <select name="status" id="status">
+            <option value="" selected disabled>Status</option>
+            {% for stat in status %}
+                <option value=" {{ stat }} "> {{ stat }} </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add</button>
+    </form>
+<hr>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>ToDo</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todolist %}
+                <tr>
+                    <td>{{ todo.id }}</td>
+                    <td>{{ todo.title }}</td>
+                    <td>{{ todo.status }}</td>
+                    <td>
+                        <a href="/update/{{ todo.id }}">Update</a>
+                        <a href="/delete/{{ todo.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

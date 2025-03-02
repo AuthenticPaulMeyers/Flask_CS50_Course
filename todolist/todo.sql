@@ -1,0 +1,1 @@
+CREATE TABLE todo(id INTEGER, title TEXT, status TEXT, PRIMARY KEY(id));
